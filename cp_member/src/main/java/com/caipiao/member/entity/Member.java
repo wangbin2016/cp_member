@@ -82,4 +82,12 @@ public class Member {
     public void setMobile(String mobile) {
         this.mobile = mobile == null ? null : mobile.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", account=" + account + ", nickname=" + nickname + ", password=" + password
+				+ ", createTime=" + createTime + ", status=" + status + ", email=" + email + ", mobile=" + mobile + "]";
+	}
+    
+
 }

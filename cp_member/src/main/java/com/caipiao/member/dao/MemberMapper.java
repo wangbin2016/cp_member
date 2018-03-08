@@ -10,6 +10,6 @@ public interface MemberMapper {
 
     int insertSelective(Member record);
     
-    @Select("select * from Member where account=#{account} and password=#{password}")
+    @Select("select * from Member where account=#{arg0} and password=#{arg1}")
     Member findMemberByLogin(String account,String password);
 }

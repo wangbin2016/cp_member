@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.caipiao.member.entity.Member;
 import com.caipiao.member.service.MemberService;
 
@@ -23,10 +24,12 @@ public class MemberServiceTest {
 		@SuppressWarnings("resource")
 		ApplicationContext ac = new ClassPathXmlApplicationContext(new String[]{"spring.xml","spring-mybatis.xml"});
 		memberService = (MemberService)ac.getBean("memberService");
+		DruidDataSource dataSource = (DruidDataSource)ac.getBean("dataSource");
+		System.out.println(dataSource.getUsername() +"   "+dataSource.getPassword());
 		log.info("初始化配置");
 	}
 	
-	@Test
+	//@Test
 	public void exe() {
 		Member member = new Member();
 		member.setAccount("test");
@@ -37,6 +40,14 @@ public class MemberServiceTest {
 		member.setPassword("test123");
 		member.setStatus(1);
 		memberService.addMember(member);
+	}
+	
+	@Test
+	public void find() {
+		String account="test";
+		String password="test123";
+		Member member = memberService.getMember(account, password);
+		System.out.println(member);
 	}
 	
 	@After
