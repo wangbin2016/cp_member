@@ -17,6 +17,11 @@ public class MemberServiceImpl implements MemberService{
 	public void addMember(Member member) {
 		memberMapper.insert(member);
 	}
+	
+	@Override
+	public void regist(Member member) {
+		memberMapper.insert(member);
+	}
 
 	@Override
 	public Member getMember(String account, String password) {

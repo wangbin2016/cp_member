@@ -6,4 +6,6 @@ public interface MemberService {
 	public void addMember(Member member);
 
 	public Member getMember(String account, String password);
+	
+	public void regist(Member member);
 }
