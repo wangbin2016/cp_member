@@ -1,12 +1,14 @@
 package com.caipiao.member.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.Data;
 @Data
-public class Member {
+public class Member implements Serializable{
+	private static final long serialVersionUID = 1L;
 
-    private String id;
+	private String id;
 
     private String account;
 
