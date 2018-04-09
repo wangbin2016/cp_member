@@ -16,13 +16,16 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public void addMember(Member member) {
-		member.setPassword(MD5.sign(member.getPassword()));
+		String passwrod = MD5.sign(member.getPassword());
+		member.setPassword(passwrod);
+		
 		memberMapper.insert(member);
 	}
 	
 	@Override
 	public void regist(Member member) {
-		member.setPassword(MD5.sign(member.getPassword()));
+		String passwrod = MD5.sign(member.getPassword());
+		member.setPassword(passwrod);
 		memberMapper.insert(member);
 	}
 
