@@ -13,6 +13,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
+	<properties>
+		<projectName>cp_member</projectName>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -28,6 +31,13 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<resources>  
+            <resource>  
+                <directory>src/main/resources</directory>  
+                <filtering>true</filtering>
+                
+            </resource>  
+        </resources>
 		<pluginManagement>
 			<plugins>
 				<plugin>

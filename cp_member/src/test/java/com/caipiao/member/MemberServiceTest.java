@@ -46,7 +46,7 @@ public class MemberServiceTest {
 	public void find() {
 		String account="test";
 		String password=null;
-		Member member = memberService.getMember(account, password);
+		Member member = memberService.getMember(account, "123456");
 		System.out.println(member);
 	}
 	

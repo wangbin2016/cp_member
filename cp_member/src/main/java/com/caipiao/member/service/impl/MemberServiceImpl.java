@@ -10,29 +10,20 @@ import com.caipiao.member.service.MemberService;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService{
-
-	@Autowired
+	@Autowired 
 	private MemberMapper memberMapper;
-	
-	@Override
 	public void addMember(Member member) {
 		String passwrod = MD5.sign(member.getPassword());
 		member.setPassword(passwrod);
-		
 		memberMapper.insert(member);
 	}
-	
-	@Override
 	public void regist(Member member) {
 		String passwrod = MD5.sign(member.getPassword());
 		member.setPassword(passwrod);
 		memberMapper.insert(member);
 	}
-
-	@Override
 	public Member getMember(String account, String password) {
 		password = MD5.sign(password);
 		return memberMapper.findMemberByLogin(account, password);
 	}
-
 }
